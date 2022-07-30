@@ -1,0 +1,47 @@
+﻿@model ExpenseEntity
+
+<form method="post">
+
+    <div class="border p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">New Expense</h2>
+            <hr />
+        </div>
+        
+        <div class="mb-3"> 
+            <div>
+            <label asp-for="ExpenseCategoryId"></label>
+            <select asp-items="@ViewBag.PopulateExpCategory" asp-for="ExpenseCategoryId" class="form-control  form-select" >
+                <option >
+                    --Select Expense Category
+                </option>
+            </select>
+            <span asp-validation-for="ExpenseCategoryId" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="mb-3"> 
+            <label asp-for="Description"></label>
+            <input asp-for="Description" class="form-control" />
+            <span asp-validation-for="Description" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Createdate"></label>
+            <input asp-for="Createdate" class="form-control" />
+            <span asp-validation-for="Createdate" class="text-danger"></span>
+        </div>
+
+         <div class="mb-3">
+            <label asp-for="Amount"></label>
+            <input asp-for="Amount" class="form-control" />
+            <span asp-validation-for="Amount" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary " style="width:150px ">Create</button>
+        <a asp-controller="Expense" asp-action="Index" class="btn btn-secondary" style="width:150px">Back to list</a>
+
+    </div>
+</form>
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
